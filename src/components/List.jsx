@@ -5,12 +5,12 @@ export function List(props){
     return(
         <div>
             <h1>My Hacker Stories</h1>
+            <Search />
             <ul>
                 {props.lista.map((item)=>(
                     <Item key={item.objectID} item={item} />
                 ))}
             </ul>
-            <Search />
         </div>
     );
 }
