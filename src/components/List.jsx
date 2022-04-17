@@ -1,29 +1,32 @@
 import * as React from "react";
 import {Search} from "./Search";
 
-export function List(props){
-    const handleSearch=(event)=>(
-        console.log(event.target.value)
+export function List(props) {
+    const [searchTerm, setSearchTerm] = React.useState('React');
+    const handleSearch = (event) => (
+        setSearchTerm(event.target.value)
     )
-    return(
+    const searchedStories = props.lista.filter((list) => {
+        return list.title.includes(searchTerm)
+    })
+    return (
         <div>
             <h1>My Hacker Stories</h1>
-            <Search onSearch={handleSearch}/>
-            <ul>
-                {props.lista.map((item)=>(
-                    <Item key={item.objectID} item={item} />
-                ))}
-            </ul>
+            <Search search={searchTerm} onSearch={handleSearch}/>
+            <Item lista={searchedStories}/>
         </div>
     );
 }
 
-const Item=(props)=>(
-    <li>
+const Item = (props) => (
+    <ul>
+        {props.lista.map((item) => (
+            <li key={item.objectID}>
         <span>
-            <a href={props.item.url}>{props.item.title}</a>
+          <a href={item.url}>{item.title}</a>
         </span>
-        <span> {props.item.author}</span>
-        <span> {props.item.points}</span>
-    </li>
+                <span>{item.author}</span>
+                <span>{item.points}</span>
+            </li>))}
+    </ul>
 )
