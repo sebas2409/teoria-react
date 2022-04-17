@@ -1,5 +1,5 @@
 import * as React from "react";
-import ReactDOM from 'react-dom';
+import {createRoot} from "react-dom/client";
 import {List} from "./components/List";
 
 const list = [
@@ -19,7 +19,9 @@ const list = [
         objectID: 1,
     },
 ];
-ReactDOM.render(
-    <List lista={list}/>,
+
+createRoot(
     document.getElementById('root')
+).render(
+    <List lista={list}/>
 )

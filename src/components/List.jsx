@@ -2,10 +2,13 @@ import * as React from "react";
 import {Search} from "./Search";
 
 export function List(props){
+    const handleSearch=(event)=>(
+        console.log(event.target.value)
+    )
     return(
         <div>
             <h1>My Hacker Stories</h1>
-            <Search />
+            <Search onSearch={handleSearch}/>
             <ul>
                 {props.lista.map((item)=>(
                     <Item key={item.objectID} item={item} />

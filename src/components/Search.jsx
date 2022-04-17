@@ -1,10 +1,11 @@
 import * as React from "react";
 
-export const Search=()=>{
+export const Search=(props)=>{
     const [searchTerm, setSearchTerm] = React.useState('');
-    const handleChange = (event)=>(
+    const handleChange = (event)=> {
         setSearchTerm(event.target.value)
-    )
+        props.onSearch(event)
+    }
     return (
         <div>
             <label htmlFor="search">Search: </label>
