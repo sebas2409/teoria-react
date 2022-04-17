@@ -2,7 +2,7 @@ import * as React from "react";
 import {Search} from "./Search";
 
 export function List(props) {
-    const [searchTerm, setSearchTerm] = React.useState('React');
+    const [searchTerm, setSearchTerm] = React.useState('React'); // valor inicial del input al recargar
     const handleSearch = (event) => (
         setSearchTerm(event.target.value)
     )
