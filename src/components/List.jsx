@@ -10,7 +10,7 @@ export function List(props){
                     <Item key={item.objectID} item={item} />
                 ))}
             </ul>
-            <Search/>
+            <Search />
         </div>
     );
 }
